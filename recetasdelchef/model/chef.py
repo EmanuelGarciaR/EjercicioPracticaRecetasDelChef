@@ -40,5 +40,20 @@ class Receta:
 
     def __str__(self):
         ingredientes_str = "\n".join(str(ingrediente) for ingrediente in self.ingredientes)
-        return (f"Receta {self.nombre}\nIngredientes:\n{ingredientes_str}\n\nDescripción:{self.descripcion}")
+        return f"Receta {self.nombre}\nIngredientes:\n{ingredientes_str}\n\nDescripción:{self.descripcion}"
 # TODO: Implementar la clase Chef
+class Chef:
+    def __init__(self):
+        self.recetas: list[Receta] =  []
+    def registrar_receta(self, nombre: str, ingredientes: list[tuple[str,float,UnidadMedida]], descripcion:  str, etiquetas: list[str]=None):
+        receta = Receta(nombre, descripcion,etiquetas)
+        for alimento, cantidad, unidad in ingredientes:
+            receta.agregar_ingrediente(alimento, cantidad, unidad)
+        self.recetas.append(receta)
+
+    def buscar_receta(self, nombre: str)->Receta|None:
+        for receta in self.recetas:
+            if nombre.lower() in receta.nombre.lower():
+                return receta
+        return None
+
