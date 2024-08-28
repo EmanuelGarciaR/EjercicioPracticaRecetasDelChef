@@ -37,4 +37,8 @@ class Receta:
     def agregar_ingrediente(self, alimento: str, cantidad: float, unidad: UnidadMedida):
         ingrediente = Ingrediente(alimento, cantidad, unidad)
         self.ingredientes.append(ingrediente)
+
+    def __str__(self):
+        ingredientes_str = "\n".join(str(ingrediente) for ingrediente in self.ingredientes)
+        return (f"Receta {self.nombre}\nIngredientes:\n{ingredientes_str}\n\nDescripción:{self.descripcion}")
 # TODO: Implementar la clase Chef
