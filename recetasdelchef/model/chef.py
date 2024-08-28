@@ -34,5 +34,7 @@ class Receta:
         self.ingredientes: list[Ingrediente] = []
         self.etiquetas: list[str] = etiquetas if etiquetas is not None else []
 
-
+    def agregar_ingrediente(self, alimento: str, cantidad: float, unidad: UnidadMedida):
+        ingrediente = Ingrediente(alimento, cantidad, unidad)
+        self.ingredientes.append(ingrediente)
 # TODO: Implementar la clase Chef
