@@ -57,3 +57,10 @@ class Chef:
                 return receta
         return None
 
+    def recetas_vegetarianas(self) ->list[Receta]:
+        vegetarianas = []
+        for receta in self.recetas:
+            if "vegetariano" in receta.etiquetas or "VEGETARIANO" in receta.etiquetas:
+                vegetarianas.append(receta)
+        return vegetarianas
+
