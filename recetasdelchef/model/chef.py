@@ -17,7 +17,14 @@ class UnidadMedida(StrEnum):
 
 
 # TODO: Implementar la clase Ingrediente
+class Ingrediente:
+    def __init__(self, alimento: str, cantidad: float, unidad: UnidadMedida):
+        self.alimento: str = alimento
+        self.cantidad: float = cantidad
+        self.unidad: UnidadMedida = unidad
 
+    def __str__(self):
+        return f"{self.cantidad} {self.unidad.value} de {self.alimento}"
 # TODO: Implementar la clase Receta
 
 # TODO: Implementar la clase Chef
