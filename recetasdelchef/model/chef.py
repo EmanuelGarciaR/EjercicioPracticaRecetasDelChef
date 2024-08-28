@@ -71,3 +71,13 @@ class Chef:
                 veganas.append(receta)
         return veganas
 
+    def contador_recetas_por_etiqueta(self)->dict[str, int]:
+        contador= {}
+        for receta in self.recetas:
+            for etiqueta in receta.etiquetas:
+                if etiqueta not in  contador:
+                    contador[etiqueta]=1
+                else:
+                    contador[etiqueta] +=1
+        return contador
+
