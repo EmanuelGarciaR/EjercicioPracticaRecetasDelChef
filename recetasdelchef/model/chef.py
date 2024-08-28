@@ -27,4 +27,12 @@ class Ingrediente:
         return f"{self.cantidad} {self.unidad.value} de {self.alimento}"
 # TODO: Implementar la clase Receta
 
+class Receta:
+    def __init__(self, nombre: str, descripcion:  str, etiquetas: list[str] = None):
+        self.nombre: str = nombre
+        self.descripcion: str = descripcion
+        self.ingredientes: list[Ingrediente] = []
+        self.etiquetas: list[str] = etiquetas if etiquetas is not None else []
+
+
 # TODO: Implementar la clase Chef
